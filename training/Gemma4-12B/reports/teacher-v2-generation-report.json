@@ -1,0 +1,39 @@
+{
+  "status": "prepared",
+  "task": "hazard_assessment",
+  "supervision_quality": "weak",
+  "label_policy_id": "pave-rf-privileged-teacher-v2",
+  "created_utc": "2026-10-09T21:28:40.762118+00:00",
+  "teacher_model_id": "google/gemma-4-12B-it",
+  "teacher_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "source_manifest_sha256": {
+    "train": "259cff042a9675d056bcc50086cd7c89824b45998424f09f5e33350f20059cbf",
+    "validation": "ef1de70042c3d4a821179e848f7123c27fc918f8ab58aeb6c68efdd8526a7fd3"
+  },
+  "accepted": {
+    "train": 296,
+    "validation": 56
+  },
+  "rejected": {
+    "train": 4,
+    "validation": 4
+  },
+  "target_states": {
+    "validation:hazard": 47,
+    "validation:unknown": 6,
+    "validation:no_confirmed_hazard": 3,
+    "train:hazard": 229,
+    "train:no_confirmed_hazard": 57,
+    "train:unknown": 10
+  },
+  "deadline_utc": "2026-10-09T21:53:36.937038+00:00",
+  "accuracy_verified": false,
+  "elapsed_seconds": 725.57,
+  "last_batch_seconds": 6.483,
+  "limitations": [
+    "Weak teacher targets, not hazard ground truth",
+    "QA references contain synthetic supervision and can be wrong",
+    "Single-frame training does not teach temporal motion or walking speed",
+    "Validation measures held-out teacher agreement, not safety accuracy"
+  ]
+}

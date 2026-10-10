@@ -1,0 +1,75 @@
+{
+  "created_utc": "2026-10-09T21:45:59.981044+00:00",
+  "status": "passed_integrity_checks",
+  "accuracy_verified": false,
+  "source_directory": "/workspace/data/gemma-hazards-v2",
+  "filtered_directory": "/workspace/data/gemma-hazards-filtered-v2",
+  "all_targets_and_inputs_preserved": true,
+  "all_source_provenance_preserved": true,
+  "all_labels_remain_explicitly_weak": true,
+  "train_validation_recording_groups_disjoint": true,
+  "critic_decisions_exactly_cover_source": true,
+  "decisions": 352,
+  "splits": {
+    "train": {
+      "retained_rows": 155,
+      "recording_groups": 54,
+      "hazards": 103,
+      "hazards_with_ids": 29,
+      "danger_types": {
+        "surface_hazard": 39,
+        "trip_fall": 27,
+        "obstacle_collision": 37
+      },
+      "sha256": "3c5bd2a90217e6efdb675b4eb19cf2d9df0e996bfc12c11a04fbf49165b87f44"
+    },
+    "validation": {
+      "retained_rows": 22,
+      "recording_groups": 6,
+      "hazards": 21,
+      "hazards_with_ids": 8,
+      "danger_types": {
+        "obstacle_collision": 12,
+        "trip_fall": 7,
+        "surface_hazard": 2
+      },
+      "sha256": "412db7d99bb732cbab145a383f127e868474c0341c03feb4f1e12797fd600886"
+    }
+  },
+  "known_bad_decisions": [
+    {
+      "id": "pave-d0a840c0889d815a24a9",
+      "split": "train",
+      "target_state": "hazard",
+      "keep": false,
+      "reason": "edge_only",
+      "raw": "```json\n{\"keep\": false, \"reason\": \"edge_only\"}\n```"
+    },
+    {
+      "id": "pave-b392f8555ebfe0132e44",
+      "split": "train",
+      "target_state": "hazard",
+      "keep": false,
+      "reason": "unclear",
+      "raw": "```json\n{\"keep\": false, \"reason\": \"unclear\"}\n```"
+    },
+    {
+      "id": "pave-6098db53ce0edb6e931f",
+      "split": "train",
+      "target_state": "hazard",
+      "keep": false,
+      "reason": "unsupported_motion",
+      "raw": "```json\n{\"keep\": false, \"reason\": \"unsupported_motion\"}\n```"
+    }
+  ],
+  "target_states": {
+    "validation:hazard": 16,
+    "validation:unknown": 3,
+    "validation:no_confirmed_hazard": 3,
+    "train:no_confirmed_hazard": 56,
+    "train:hazard": 94,
+    "train:unknown": 5
+  },
+  "elapsed_filter_seconds": 155.9,
+  "limitations": "AI-assisted filtering and targeted visual inspection, not human hazard accuracy."
+}

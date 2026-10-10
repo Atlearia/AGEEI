@@ -1,0 +1,41 @@
+{
+  "model": {
+    "resolution": 576
+  },
+  "train": {
+    "epochs": 30,
+    "batch_size": 8,
+    "grad_accum_steps": 2,
+    "eval_batch_size": 8,
+    "lr": 0.0001,
+    "lr_encoder": 0.00001,
+    "weight_decay": 0.0001,
+    "warmup_epochs": 1.0,
+    "lr_scheduler": "cosine",
+    "amp_dtype": "bf16",
+    "multi_scale": "off",
+    "expanded_scales": false,
+    "augmentation_backend": "torchvision",
+    "use_ema": true,
+    "early_stopping": true,
+    "early_stopping_patience": 5,
+    "early_stopping_min_delta": 0.001,
+    "early_stopping_use_ema": true,
+    "best_model_metric": "map",
+    "checkpoint_interval": 5,
+    "eval_interval": 1,
+    "eval_max_dets": 100,
+    "log_per_class_metrics": true,
+    "num_workers": 8,
+    "num_sanity_val_steps": 2,
+    "seed": 42,
+    "tensorboard": true,
+    "wandb": false,
+    "mlflow": false,
+    "clearml": false,
+    "run_test": false,
+    "devices": 1,
+    "num_nodes": 1,
+    "progress_bar": "tqdm"
+  }
+}

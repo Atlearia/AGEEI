@@ -1,0 +1,14 @@
+{
+  "model_setup_seconds": 5.020851895213127,
+  "fit_wall_seconds": 137.28030353039503,
+  "peak_gpu_allocated_gib": 6.172126293182373,
+  "training_images": 7999,
+  "validation_images": 1000,
+  "requested_epochs": 1,
+  "inference_checkpoint": "/workspace/runs/medium-ood-benchmark/checkpoint_best_total.pth",
+  "note": "Fit time includes validation and saving. Early stopping may finish before the epoch budget.",
+  "projected_full_fit_seconds": 4118.409105911851,
+  "projected_total_seconds": 4123.429957807064,
+  "projection_note": "One-epoch extrapolation, not a measured full-run time or guarantee. Repeats first-epoch overhead; storage, warmup and early stopping change runtime.",
+  "nominal_optimizer_steps_per_epoch": 500
+}

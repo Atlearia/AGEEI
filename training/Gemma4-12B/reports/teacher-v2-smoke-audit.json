@@ -1,0 +1,44 @@
+{
+  "audit_date_utc": "2026-10-09",
+  "label_policy_id": "pave-rf-privileged-teacher-v2",
+  "audit_kind": "completed_smoke_statistics_and_same_three_image_comparison",
+  "accuracy_verified": false,
+  "elapsed_seconds": 84.18,
+  "accepted": {"train": 20, "validation": 12},
+  "rejected": {"train": 0, "validation": 0},
+  "target_states": {
+    "train:hazard": 15,
+    "train:no_confirmed_hazard": 4,
+    "train:unknown": 1,
+    "validation:hazard": 9,
+    "validation:no_confirmed_hazard": 1,
+    "validation:unknown": 2
+  },
+  "validation": {
+    "rows": 12,
+    "hazards": 15,
+    "empty_hazard_rows": 1,
+    "uncertain_hazards": 2,
+    "hazards_with_supplied_ids": 6,
+    "categories": {"obstacle_collision": 11, "trip_fall": 4}
+  },
+  "train": {
+    "rows": 20,
+    "hazards": 21,
+    "empty_hazard_rows": 5,
+    "uncertain_hazards": 0,
+    "hazards_with_supplied_ids": 10,
+    "categories": {"obstacle_collision": 13, "surface_hazard": 3, "trip_fall": 4, "moving_traffic": 1}
+  },
+  "visual_checks": [
+    {"id": "pave-b6df3f38d4bc324f3d92", "finding": "Now reports hazards=[] for the open broad park path; removed unsupported adjacent-pole/hedge warnings."},
+    {"id": "pave-aae44f78b5df2e9286e4", "finding": "Reports the visible bin on the right side of the walking area; dropped the edge bench and small distant birds."},
+    {"id": "pave-58a44c37bf1dc834f16b", "finding": "Reports the visible person ahead in the sidewalk; dropped planter tree and lateral hedge assertions."}
+  ],
+  "decision": "Proceed with bounded full generation as explicitly weak prototype supervision, then audit full split coverage before training.",
+  "remaining_issues": [
+    "Some descriptions name an object without explaining a concrete walking consequence.",
+    "Words such as walking can imply temporal movement not established by a single frame."
+  ],
+  "limitations": "AI-assisted nonrandom review, not human ground truth or measured warning accuracy. Smoke scenes influenced prompt selection; their later validation teacher-agreement scores are development metrics, not an untouched test."
+}

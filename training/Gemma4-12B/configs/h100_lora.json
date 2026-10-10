@@ -1,0 +1,18 @@
+{
+  "model_id": "google/gemma-4-12B-it",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "target_modules_regex": ".*language_model\\.layers\\.\\d+\\.self_attn\\.(q_proj|k_proj|v_proj|o_proj)",
+  "learning_rate": 0.0001,
+  "weight_decay": 0.01,
+  "gradient_accumulation_steps": 8,
+  "max_steps": 200,
+  "max_sequence_tokens": 8192,
+  "max_target_tokens": 768,
+  "eval_steps": 50,
+  "save_steps": 50,
+  "warmup_ratio": 0.05,
+  "seed": 42
+}

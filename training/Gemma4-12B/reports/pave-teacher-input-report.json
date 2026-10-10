@@ -1,0 +1,128 @@
+{
+  "created_at": "2026-10-09T21:19:54.302044+00:00",
+  "status": "prepared",
+  "task": "teacher_source",
+  "source_data_report": {
+    "created_at": "2026-10-09T21:16:24.227369+00:00",
+    "source": {
+      "source_url": "https://huggingface.co/datasets/rafiibnsultan/PAVE",
+      "annotations": "https://huggingface.co/datasets/rafiibnsultan/PAVE",
+      "images": "https://github.com/google-research-datasets/sanpo_dataset",
+      "annotation_license": "https://huggingface.co/datasets/rafiibnsultan/PAVE/blob/945dae763031eadcd77917890d2ffaf68624131f/README.md",
+      "image_license": "https://github.com/google-research-datasets/sanpo_dataset#license--contact",
+      "license": "CC-BY-4.0",
+      "license_verified": true,
+      "annotation_generation": "Existing GPT-5-nano QA generated from SANPO scene attributes by PAVE authors",
+      "annotation_method_url": "https://arxiv.org/html/2603.10703v1#S3.SS2"
+    },
+    "pave_revision": "945dae763031eadcd77917890d2ffaf68624131f",
+    "metadata": [
+      {
+        "url": "https://huggingface.co/datasets/rafiibnsultan/PAVE/resolve/945dae763031eadcd77917890d2ffaf68624131f/PAVE_train85.jsonl",
+        "sha256": "974d317fdefda9acbb58dda714ae1f0271ff0529cafb3c0c743b7ce1a21c4ac9",
+        "bytes": 10177321
+      },
+      {
+        "url": "https://huggingface.co/datasets/rafiibnsultan/PAVE/resolve/945dae763031eadcd77917890d2ffaf68624131f/PAVE_val85.jsonl",
+        "sha256": "1a548c66fbd841e9402a9733d5940614c6f977ac7be7b2e7f411507d2d88b78d",
+        "bytes": 665269
+      },
+      {
+        "url": "https://storage.googleapis.com/gresearch/sanpo_dataset/v0/sanpo-real/splits/test_session_ids.txt",
+        "sha256": "af2c6a5aa06cd1e8ec2cff76672966dac7288b3b5267a14f835d8595601a13d0",
+        "bytes": 4653
+      },
+      {
+        "url": "https://storage.googleapis.com/gresearch/sanpo_dataset/v0/sanpo-real/splits/train_session_ids.txt",
+        "sha256": "1bad2efa02690f455d5f27b59319eb9ef31c0efb6e1a314b056b63d836fb3cec",
+        "bytes": 18480
+      }
+    ],
+    "task": "source_qa",
+    "status": "prepared",
+    "seed": 42,
+    "native_train_rows": 8500,
+    "native_eval_rows": 600,
+    "excluded_sanpo_test_rows": 1600,
+    "excluded_sanpo_test_sessions": [
+      "3fNdc-1R7QcLCPHG7Zn9oQXrPqKQbuys",
+      "EK-Dn-ByDTucTgR4juV39aOB-lXRlQsu",
+      "QVzjzsSertgX6WAHcL5wP6pnnEieXu8f",
+      "R-m2bE9gXbt5BXy8bRwqweQ2HpWtxNSC",
+      "Y7nO8Jdazb6YiOTMRqdaNip34BRQCp0d",
+      "YX96c5nI4Yuu03Izt8JeJbPOdS80yEJT",
+      "cEZJ_REy7wD6B_0xs2nJ4-Jn-fZg23vd",
+      "kXJGW5axJowZGlrwAACc6PVt0vQNZGgI",
+      "lE6lpL5lGivGqqik0GIioEA8TUa0JpOo",
+      "nLMkaU45iav7Ix1Iymm2LcA5PWJs0InI",
+      "p4pI8_U0C-ejpZG3A74y16AjPTQUT-mP",
+      "qsDqc0UMhCk60mJVxIa3TTBGOCAprG-j",
+      "vEs5vrZ91pXKFJA78wJ31E_zqVGpgrS4",
+      "xBv3IvtJQAcwc_V5Q6nqBInmZ02GNNC4",
+      "yUe452gYQOrn5b4BzV1tzgDxW3T0JWE_",
+      "zKsJQMv6IV6seRnaYa_gp6fYkiKFYR3h"
+    ],
+    "available": {
+      "train": {
+        "rows": 6200,
+        "sessions": 62
+      },
+      "validation": {
+        "rows": 700,
+        "sessions": 7
+      },
+      "test": {
+        "rows": 600,
+        "sessions": 6
+      }
+    },
+    "selected": {
+      "train": {
+        "rows": 300,
+        "sessions": 62
+      },
+      "validation": {
+        "rows": 60,
+        "sessions": 7
+      },
+      "test": {
+        "rows": 0,
+        "sessions": 0
+      }
+    },
+    "limitations": [
+      "Single-frame accessibility QA, not motion or candidate-action risk supervision.",
+      "PAVE QA text is existing model-generated supervision, not human-verified hazard ground truth.",
+      "No object IDs, exact danger types, unknown labels or calibrated severity targets.",
+      "Native PAVE distances and segmentation tokens are excluded.",
+      "PAVE official evaluation sessions are test-only, not training or model selection.",
+      "PAVE QA includes questions about several mobility needs, not exclusively blindness."
+    ],
+    "downloaded_bytes": 1212521937,
+    "reused_images": 0,
+    "prepared_images": 360,
+    "image_policy": {
+      "max_edge": 896,
+      "format": "JPEG",
+      "quality": 92
+    }
+  },
+  "rf_checkpoint_sha256": "da22cd0f3c3389716a2a2f402c3bb54dc16eb84ecc821c445b9bd8518359cabf",
+  "rf_threshold": 0.3,
+  "rf_max_objects": 100,
+  "splits": {
+    "train": {
+      "examples": 300,
+      "boxes": 1808,
+      "images_without_boxes": 10,
+      "manifest_sha256": "259cff042a9675d056bcc50086cd7c89824b45998424f09f5e33350f20059cbf"
+    },
+    "validation": {
+      "examples": 60,
+      "boxes": 338,
+      "images_without_boxes": 2,
+      "manifest_sha256": "ef1de70042c3d4a821179e848f7123c27fc918f8ab58aeb6c68efdd8526a7fd3"
+    }
+  },
+  "note": "Actual detections; source QA is privileged teacher context, not a final hazard target. IDs are frame-local."
+}

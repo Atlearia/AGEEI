@@ -1,0 +1,9 @@
+# Python 3.11 on Linux, CUDA-enabled H100 environment.
+# Install a CUDA PyTorch wheel first if the cloud image does not provide one.
+torch==2.8.0
+torchvision==0.23.0
+rfdetr[train]==1.11.2
+tensorboard>=2.13,<3
+pycocotools>=2.0.10,<3
+Pillow>=11,<13
+roboflow>=1.2,<2

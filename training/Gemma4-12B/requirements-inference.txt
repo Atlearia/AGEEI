@@ -1,0 +1,9 @@
+# Install the provider-compatible CUDA PyTorch / torchvision first.
+transformers==5.19.0
+peft==0.21.0
+bitsandbytes==0.50.2
+accelerate>=1.10,<2
+Pillow>=11,<13
+fastapi>=0.115,<1
+pydantic>=2.8,<3
+uvicorn>=0.30,<1

@@ -1,0 +1,314 @@
+{
+  "audit_date_utc": "2026-10-09",
+  "original_run_status": "failed",
+  "reason": "Exact single JSON fences were rejected by the first critic parser",
+  "original_examples": 32,
+  "offline_readonly_interpretation": "Only complete single JSON fences unwrapped for this audit; this did not produce a training dataset",
+  "summary": {
+    "validation:keep": 6,
+    "validation:edge_only": 5,
+    "validation:unclear": 1,
+    "train:edge_only": 6,
+    "train:unsupported_motion": 3,
+    "train:keep": 7,
+    "train:not_visible": 1,
+    "train:invalid_critic_output": 3
+  },
+  "decisions": [
+    {
+      "id": "pave-b6df3f38d4bc324f3d92",
+      "split": "validation",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-aae44f78b5df2e9286e4",
+      "split": "validation",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": false
+    },
+    {
+      "id": "pave-58a44c37bf1dc834f16b",
+      "split": "validation",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-da81b24db384c8708898",
+      "split": "validation",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-1c9ded8ed5478a6fd333",
+      "split": "validation",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-46c592a167301a0fd479",
+      "split": "validation",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-c5c6111eb3ebabbaad08",
+      "split": "validation",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-abe151dc2952d4082738",
+      "split": "validation",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-92591c1136165fc4e4bf",
+      "split": "validation",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-1454c39b038593885268",
+      "split": "validation",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-f71f5da177224c7d1e65",
+      "split": "validation",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-cb36f036501d8a9704fe",
+      "split": "validation",
+      "decision": {
+        "keep": false,
+        "reason": "unclear"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-d0a840c0889d815a24a9",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-b392f8555ebfe0132e44",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "unsupported_motion"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-6098db53ce0edb6e931f",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "unsupported_motion"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-f1eab17ee5d741b4d244",
+      "split": "train",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-a4668d178d9fac6fef9d",
+      "split": "train",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-5ac6366597a8468666af",
+      "split": "train",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-880255545ed218c2754f",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-baf889a5ae404a5cc503",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-0b625252ec86e76a4a39",
+      "split": "train",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-913a56182d3a5fc57434",
+      "split": "train",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-52ef24abc8b75a8b9f78",
+      "split": "train",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-3d114360aad070fc20a1",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-47d0d3d1a9626cc31f2d",
+      "split": "train",
+      "decision": {
+        "keep": true,
+        "reason": "supported"
+      },
+      "exact_fence": false
+    },
+    {
+      "id": "pave-2a6e5bd4dbd4602c121c",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-dca6eaf924f4fb0a1327",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "unsupported_motion"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-27536a7a4546427ca062",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "edge_only"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-8077a5015eb6a6369905",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "not_visible"
+      },
+      "exact_fence": true
+    },
+    {
+      "id": "pave-4accd3a9349f0de3994d",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "invalid_critic_output"
+      },
+      "exact_fence": false
+    },
+    {
+      "id": "pave-0aca4303ca5f909f72e7",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "invalid_critic_output"
+      },
+      "exact_fence": false
+    },
+    {
+      "id": "pave-c1386f8444f66832f3c0",
+      "split": "train",
+      "decision": {
+        "keep": false,
+        "reason": "invalid_critic_output"
+      },
+      "exact_fence": false
+    }
+  ],
+  "semantic_observations": [
+    "All three known noisy positive cases are rejected in the raw decisions",
+    "All three visually checked train negatives and the empty park-path negative are retained",
+    "One previously improved bin example is conservatively rejected as edge_only"
+  ],
+  "accuracy_verified": false,
+  "required_next_step": "Rerun with tested exact-fence normalization and preserve all raw outputs; do not broaden to arbitrary JSON scraping"
+}

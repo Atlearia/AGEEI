@@ -1,0 +1,35 @@
+{
+  "audit_date_utc": "2026-10-09",
+  "label_policy_id": "pave-rf-privileged-teacher-v2",
+  "audit_kind": "ten_later_training_rows_31_to_40_and_three_targeted_visual_checks",
+  "accuracy_verified": false,
+  "active_output_files_modified": false,
+  "validation_rejections_observed": {
+    "count": 4,
+    "causes": ["numbered-list prefix before JSON", "numeric prefix before a JSON fence", "thought token prefix before a JSON fence", "numbered-list prefix before JSON"],
+    "empty_hazard_targets_rejected": 1,
+    "positive_hazard_targets_rejected": 3,
+    "route_clear_wording_rejections": 0
+  },
+  "visual_checks": [
+    {
+      "id": "pave-d0a840c0889d815a24a9",
+      "finding": "Teacher flags bins against the right-side rail of a very wide paved route. The central walking area is visibly open; no actual forward obstruction is established."
+    },
+    {
+      "id": "pave-b392f8555ebfe0132e44",
+      "finding": "Teacher flags a person standing near the extreme right fence edge. The central walking route remains visibly open."
+    },
+    {
+      "id": "pave-6098db53ce0edb6e931f",
+      "finding": "Camera view is dominated by sky and building tops, with parked car roofs at the bottom and little visible walking surface. A confident moving_traffic hazard is not supported; walking-area uncertainty is missing."
+    }
+  ],
+  "critic_smoke_benign_examples_reviewed": [
+    {"id": "pave-f1eab17ee5d741b4d244", "finding": "Open running track; no obvious current-route obstruction visible."},
+    {"id": "pave-a4668d178d9fac6fef9d", "finding": "Sidewalk beside parked roadside cars; no obvious current-route obstruction visible, although the tilted view limits the visible lower walking surface."},
+    {"id": "pave-5ac6366597a8468666af", "finding": "Curved fenced pedestrian ramp; no obvious obstacle occupying the visible walkway."}
+  ],
+  "recommendation": "Treat as residual weak-label noise. Consider excluding reviewed unsupported targets in a separately finalized curation output; do not mutate a generating manifest or call these human-verified labels.",
+  "limitations": "Targeted AI-assisted inspection, not a random evaluation, human ground truth, or measured false-positive rate. Earlier prompt improvements did not establish reliable contextual hazard reasoning."
+}

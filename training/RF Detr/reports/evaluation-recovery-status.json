@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "supervisor_pid": 9372,
+  "command": [
+    "/workspace/ageii-venvs/rfdetr/bin/python",
+    "-u",
+    "-c",
+    "import subprocess\ncommands=[['/workspace/ageii-venvs/rfdetr/bin/python', '-u', '/workspace/ageii-release-20261009T193821Z/training/RF Detr/evaluate.py', '--data', '/workspace/data/ood-v1', '--checkpoint', '/workspace/runs/medium-ood/checkpoint_best_total.pth', '--batch-size', '8', '--split', 'valid', '--output', '/workspace/runs/medium-ood/evaluation-valid-recovered'], ['/workspace/ageii-venvs/rfdetr/bin/python', '-u', '/workspace/ageii-release-20261009T193821Z/training/RF Detr/evaluate.py', '--data', '/workspace/data/ood-v1', '--checkpoint', '/workspace/runs/medium-ood/checkpoint_best_total.pth', '--batch-size', '8', '--split', 'test', '--output', '/workspace/runs/medium-ood/evaluation-test']]\nfor command in commands:\n print(\"STAGE\",command[-3:],flush=True)\n subprocess.run(command,check=True)\n"
+  ],
+  "started_utc": "2026-10-09T20:54:56.215160+00:00",
+  "child_pid": 9373,
+  "returncode": 0,
+  "finished_utc": "2026-10-09T20:56:46.376572+00:00",
+  "elapsed_seconds": 110.16
+}

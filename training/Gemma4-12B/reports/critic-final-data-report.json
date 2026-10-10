@@ -1,0 +1,57 @@
+{
+  "status": "prepared",
+  "supervision_quality": "weak",
+  "accuracy_verified": false,
+  "critic_policy_id": "pave-forward-area-critic-v1",
+  "critic_prompt_sha256": "a16ba6c5ed9aecd4ad95345f205c1925a4dca48bc1b871a2afa075e582259404",
+  "critic_model_id": "google/gemma-4-12B-it",
+  "critic_model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "created_utc": "2026-10-09T21:42:58.384121+00:00",
+  "deadline_utc": "2026-10-09T21:52:58.384022+00:00",
+  "accepted": {
+    "train": 155,
+    "validation": 22
+  },
+  "rejected": {
+    "train": 141,
+    "validation": 34
+  },
+  "drop_reasons": {
+    "validation:not_visible": 12,
+    "validation:edge_only": 13,
+    "validation:unclear": 1,
+    "validation:invalid_critic_output": 7,
+    "validation:unsupported_motion": 1,
+    "train:edge_only": 58,
+    "train:not_visible": 44,
+    "train:unsupported_motion": 18,
+    "train:unclear": 8,
+    "train:invalid_critic_output": 12,
+    "train:reference_contradiction": 1
+  },
+  "target_states": {
+    "validation:hazard": 16,
+    "validation:unknown": 3,
+    "validation:no_confirmed_hazard": 3,
+    "train:no_confirmed_hazard": 56,
+    "train:hazard": 94,
+    "train:unknown": 5
+  },
+  "targets_rewritten": false,
+  "critic_decision_normalization": "Remove only one complete JSON code fence around an offline critic decision; preserve raw audit text and all original targets",
+  "limitations": [
+    "Same-model AI critic; correlated errors can survive",
+    "Weak teacher consistency filtering, not human hazard accuracy",
+    "Still images do not supervise temporal motion or walking speed"
+  ],
+  "elapsed_seconds": 155.9,
+  "selected": {
+    "train": 296,
+    "validation": 56
+  },
+  "source_manifest_sha256": {
+    "train": "73c5d776e3cf8369f15a9e027b278515731c5bba4fab4d3b75c57e8ece6160ca",
+    "validation": "dab28bd586657169ce44d9cb319da1ff32ab6b6ef955d50dbda8fceb39c9a78b"
+  },
+  "last_batch_seconds": 2.823
+}

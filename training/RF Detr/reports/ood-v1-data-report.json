@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-09T19:59:45.797670+00:00",
+  "source": {
+    "name": "OOD v1 by FPN",
+    "url": "https://universe.roboflow.com/fpn/ood-pbnro/dataset/1",
+    "license": "CC BY 4.0",
+    "path": "/workspace/data/ood-v1-raw"
+  },
+  "source_annotations": {
+    "train": {
+      "path": "/workspace/data/ood-v1-raw/train/_annotations.coco.json",
+      "sha256": "f0f71344b95fa2505d7487e44e2bff3026cfff7f6c246375ecf6de3546e54612",
+      "images": 8000,
+      "annotations": 23912
+    },
+    "valid": {
+      "path": "/workspace/data/ood-v1-raw/valid/_annotations.coco.json",
+      "sha256": "b93999f64bee7f90d6e1d2ae31ceceb1fcdbae7b064622d441786eeb536d1071",
+      "images": 1000,
+      "annotations": 2922
+    },
+    "test": {
+      "path": "/workspace/data/ood-v1-raw/test/_annotations.coco.json",
+      "sha256": "318e832678101fdbd39ec56df17eea4f6ce9f178969f02816fe0b4d033a4acd8",
+      "images": 1000,
+      "annotations": 2945
+    }
+  },
+  "declared_categories": {
+    "train": {
+      "0": "Objects",
+      "1": "bench",
+      "2": "bicycle",
+      "3": "bus",
+      "4": "bus_stop",
+      "5": "car",
+      "6": "crutch",
+      "7": "curb",
+      "8": "dog",
+      "9": "fire_hydrant",
+      "10": "motorcycle",
+      "11": "person",
+      "12": "pole",
+      "13": "spherical_roadblock",
+      "14": "stairs",
+      "15": "stop_sign",
+      "16": "street_light",
+      "17": "traffic_light",
+      "18": "train",
+      "19": "tree",
+      "20": "truck",
+      "21": "warning_column",
+      "22": "waste_container"
+    },
+    "valid": {
+      "0": "Objects",
+      "1": "bench",
+      "2": "bicycle",
+      "3": "bus",
+      "4": "bus_stop",
+      "5": "car",
+      "6": "crutch",
+      "7": "curb",
+      "8": "dog",
+      "9": "fire_hydrant",
+      "10": "motorcycle",
+      "11": "person",
+      "12": "pole",
+      "13": "spherical_roadblock",
+      "14": "stairs",
+      "15": "stop_sign",
+      "16": "street_light",
+      "17": "traffic_light",
+      "18": "train",
+      "19": "tree",
+      "20": "truck",
+      "21": "warning_column",
+      "22": "waste_container"
+    },
+    "test": {
+      "0": "Objects",
+      "1": "bench",
+      "2": "bicycle",
+      "3": "bus",
+      "4": "bus_stop",
+      "5": "car",
+      "6": "crutch",
+      "7": "curb",
+      "8": "dog",
+      "9": "fire_hydrant",
+      "10": "motorcycle",
+      "11": "person",
+      "12": "pole",
+      "13": "spherical_roadblock",
+      "14": "stairs",
+      "15": "stop_sign",
+      "16": "street_light",
+      "17": "traffic_light",
+      "18": "train",
+      "19": "tree",
+      "20": "truck",
+      "21": "warning_column",
+      "22": "waste_container"
+    }
+  },
+  "dropped_invalid_images": [
+    {
+      "split": "train",
+      "image_id": 4374,
+      "reason": "Out-of-bounds/empty bbox [542, 90, 482.25, 598.98] in 1024x765 image"
+    }
+  ],
+  "duplicates_removed": [],
+  "splits": {
+    "train": {
+      "images": 7999,
+      "annotations": 23907,
+      "class_instance_counts": {
+        "bench": 871,
+        "bicycle": 588,
+        "bus": 454,
+        "bus_stop": 303,
+        "car": 2723,
+        "crutch": 147,
+        "curb": 778,
+        "dog": 476,
+        "fire_hydrant": 899,
+        "motorcycle": 510,
+        "person": 3010,
+        "pole": 914,
+        "spherical_roadblock": 1606,
+        "stairs": 618,
+        "stop_sign": 932,
+        "street_light": 1306,
+        "traffic_light": 1005,
+        "train": 372,
+        "tree": 2760,
+        "truck": 424,
+        "warning_column": 1651,
+        "waste_container": 1560
+      },
+      "negative_images": 0,
+      "crowd_annotations": 0
+    },
+    "valid": {
+      "images": 1000,
+      "annotations": 2922,
+      "class_instance_counts": {
+        "bench": 117,
+        "bicycle": 57,
+        "bus": 42,
+        "bus_stop": 35,
+        "car": 392,
+        "crutch": 18,
+        "curb": 70,
+        "dog": 62,
+        "fire_hydrant": 138,
+        "motorcycle": 78,
+        "person": 410,
+        "pole": 85,
+        "spherical_roadblock": 206,
+        "stairs": 77,
+        "stop_sign": 109,
+        "street_light": 179,
+        "traffic_light": 89,
+        "train": 44,
+        "tree": 324,
+        "truck": 65,
+        "warning_column": 135,
+        "waste_container": 190
+      },
+      "negative_images": 0,
+      "crowd_annotations": 0
+    },
+    "test": {
+      "images": 1000,
+      "annotations": 2945,
+      "class_instance_counts": {
+        "bench": 115,
+        "bicycle": 66,
+        "bus": 57,
+        "bus_stop": 35,
+        "car": 370,
+        "crutch": 24,
+        "curb": 68,
+        "dog": 65,
+        "fire_hydrant": 110,
+        "motorcycle": 65,
+        "person": 387,
+        "pole": 104,
+        "spherical_roadblock": 179,
+        "stairs": 87,
+        "stop_sign": 103,
+        "street_light": 209,
+        "traffic_light": 53,
+        "train": 38,
+        "tree": 383,
+        "truck": 64,
+        "warning_column": 167,
+        "waste_container": 196
+      },
+      "negative_images": 0,
+      "crowd_annotations": 0
+    }
+  },
+  "seed": 42,
+  "max_train": null,
+  "warnings": [
+    "Boxes identify objects, not hazards or severity.",
+    "Exact decoded-pixel duplicate checking does not establish route/session independence or detect near duplicates."
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "bench",
+      "supercategory": "object"
+    },
+    {
+      "id": 2,
+      "name": "bicycle",
+      "supercategory": "object"
+    },
+    {
+      "id": 3,
+      "name": "bus",
+      "supercategory": "object"
+    },
+    {
+      "id": 4,
+      "name": "bus_stop",
+      "supercategory": "object"
+    },
+    {
+      "id": 5,
+      "name": "car",
+      "supercategory": "object"
+    },
+    {
+      "id": 6,
+      "name": "crutch",
+      "supercategory": "object"
+    },
+    {
+      "id": 7,
+      "name": "curb",
+      "supercategory": "object"
+    },
+    {
+      "id": 8,
+      "name": "dog",
+      "supercategory": "object"
+    },
+    {
+      "id": 9,
+      "name": "fire_hydrant",
+      "supercategory": "object"
+    },
+    {
+      "id": 10,
+      "name": "motorcycle",
+      "supercategory": "object"
+    },
+    {
+      "id": 11,
+      "name": "person",
+      "supercategory": "object"
+    },
+    {
+      "id": 12,
+      "name": "pole",
+      "supercategory": "object"
+    },
+    {
+      "id": 13,
+      "name": "spherical_roadblock",
+      "supercategory": "object"
+    },
+    {
+      "id": 14,
+      "name": "stairs",
+      "supercategory": "object"
+    },
+    {
+      "id": 15,
+      "name": "stop_sign",
+      "supercategory": "object"
+    },
+    {
+      "id": 16,
+      "name": "street_light",
+      "supercategory": "object"
+    },
+    {
+      "id": 17,
+      "name": "traffic_light",
+      "supercategory": "object"
+    },
+    {
+      "id": 18,
+      "name": "train",
+      "supercategory": "object"
+    },
+    {
+      "id": 19,
+      "name": "tree",
+      "supercategory": "object"
+    },
+    {
+      "id": 20,
+      "name": "truck",
+      "supercategory": "object"
+    },
+    {
+      "id": 21,
+      "name": "warning_column",
+      "supercategory": "object"
+    },
+    {
+      "id": 22,
+      "name": "waste_container",
+      "supercategory": "object"
+    }
+  ],
+  "category_id_policy": "COCO IDs 1..N; RF-DETR 1.11.2 remaps custom labels to prediction IDs 0..N-1.",
+  "removed_unannotated_category_names": [
+    "Objects"
+  ]
+}

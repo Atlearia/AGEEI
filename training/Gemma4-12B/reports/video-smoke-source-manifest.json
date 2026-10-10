@@ -1,0 +1,134 @@
+{
+  "status": "prepared",
+  "created_utc": "2026-10-09T21:57:00.271058+00:00",
+  "purpose": "Chronological real-video API smoke only, not training or hazard-accuracy evaluation",
+  "session_id": "GEwWDMMe8FFo-wHxZ4Pg1chw15P2nEEz",
+  "camera": "camera_head",
+  "lens": "left",
+  "camera_model": "CAMERA_MODEL_ZED_M",
+  "source_fps": 15.0,
+  "source_fps_verified": true,
+  "timestamp_basis": "Relative offsets derived from official session metadata FPS and original frame indices; no per-frame hardware timestamp measurements are supplied",
+  "source_description_url": "https://storage.googleapis.com/gresearch/sanpo_dataset/v0/sanpo-real/GEwWDMMe8FFo-wHxZ4Pg1chw15P2nEEz/description.json",
+  "source_description_sha256": "3cc6a19187e09197591f0acbbb082b28180ee0f358db9e4f8dfdfce549a840a6",
+  "official_fps_documentation": "https://research.google/blog/sanpo-a-scene-understanding-accessibility-navigation-pathfinding-obstacle-avoidance-dataset/",
+  "official_frame_index_loader": "https://github.com/google-research-datasets/sanpo_dataset/blob/11faca999b5c223b804cd3196541a1427834918b/sanpo_dataset/lib/common.py#L781",
+  "source_license": "CC-BY-4.0",
+  "license_url": "https://github.com/google-research-datasets/sanpo_dataset#license--contact",
+  "attribution": "Waghmare et al., SANPO: A Scene Understanding Accessibility and Human Navigation Dataset, WACV 2025",
+  "selection": "Every sixth source frame in one contiguous 31-frame interval ending at the previously inspected validation bin image; six samples spanning two seconds",
+  "span_ms": 2000,
+  "action_mode": "video",
+  "frames": [
+    {
+      "source_frame_index": 382,
+      "timestamp_ms": 0.0,
+      "path": "/workspace/data/sanpo-video-smoke-bin/000382.jpg",
+      "source_url": "https://storage.googleapis.com/gresearch/sanpo_dataset/v0/sanpo-real/GEwWDMMe8FFo-wHxZ4Pg1chw15P2nEEz/camera_head/left/video_frames/000382.png",
+      "source_bytes": 2669150,
+      "source_sha256": "15329379a145e9581714cbcc05f7e6a5848a24f1ebb1ade81a1a13fee1dfba2a",
+      "prepared_sha256": "77ab25a2266367c921b530c938cdc51bf3406569cb184914f4fd92050ce82b41",
+      "original_dimensions": [
+        2208,
+        1242
+      ],
+      "prepared_dimensions": [
+        896,
+        504
+      ]
+    },
+    {
+      "source_frame_index": 388,
+      "timestamp_ms": 400.0,
+      "path": "/workspace/data/sanpo-video-smoke-bin/000388.jpg",
+      "source_url": "https://storage.googleapis.com/gresearch/sanpo_dataset/v0/sanpo-real/GEwWDMMe8FFo-wHxZ4Pg1chw15P2nEEz/camera_head/left/video_frames/000388.png",
+      "source_bytes": 3050328,
+      "source_sha256": "bc35120e1f53b62959b5c5c35cd8bb4f90b1dc85ef01f9170ab8495d3d0e211c",
+      "prepared_sha256": "01fd4e2199232ab4007dfc5b00a6b938bffe2cbc99e072770641fa43ddb47bfb",
+      "original_dimensions": [
+        2208,
+        1242
+      ],
+      "prepared_dimensions": [
+        896,
+        504
+      ]
+    },
+    {
+      "source_frame_index": 394,
+      "timestamp_ms": 800.0,
+      "path": "/workspace/data/sanpo-video-smoke-bin/000394.jpg",
+      "source_url": "https://storage.googleapis.com/gresearch/sanpo_dataset/v0/sanpo-real/GEwWDMMe8FFo-wHxZ4Pg1chw15P2nEEz/camera_head/left/video_frames/000394.png",
+      "source_bytes": 2968427,
+      "source_sha256": "e1d1f6e50eb7978d9de999339ffc9c42002754173048df97c4c8480a5b3e9b56",
+      "prepared_sha256": "d1bc56eb645fc084694987f575bde1f864d3703e8eeae9a7cba4f3644005330a",
+      "original_dimensions": [
+        2208,
+        1242
+      ],
+      "prepared_dimensions": [
+        896,
+        504
+      ]
+    },
+    {
+      "source_frame_index": 400,
+      "timestamp_ms": 1200.0,
+      "path": "/workspace/data/sanpo-video-smoke-bin/000400.jpg",
+      "source_url": "https://storage.googleapis.com/gresearch/sanpo_dataset/v0/sanpo-real/GEwWDMMe8FFo-wHxZ4Pg1chw15P2nEEz/camera_head/left/video_frames/000400.png",
+      "source_bytes": 3012954,
+      "source_sha256": "37d3d38bd8238bff35f3942a748cc80b725348ed25b350c194ec06497912b14e",
+      "prepared_sha256": "f51bb248472beab67dbd89195668f9a32f5baae3d3b1d3132fee3510a128bd90",
+      "original_dimensions": [
+        2208,
+        1242
+      ],
+      "prepared_dimensions": [
+        896,
+        504
+      ]
+    },
+    {
+      "source_frame_index": 406,
+      "timestamp_ms": 1600.0,
+      "path": "/workspace/data/sanpo-video-smoke-bin/000406.jpg",
+      "source_url": "https://storage.googleapis.com/gresearch/sanpo_dataset/v0/sanpo-real/GEwWDMMe8FFo-wHxZ4Pg1chw15P2nEEz/camera_head/left/video_frames/000406.png",
+      "source_bytes": 3182465,
+      "source_sha256": "3692e21106fa15d7cf474f4db4b13d37b4e947942584620451112354bb253b0a",
+      "prepared_sha256": "0296f3b4d0bf80635b7fd3a82431e064879147da471eaef19be8c0338d6ca508",
+      "original_dimensions": [
+        2208,
+        1242
+      ],
+      "prepared_dimensions": [
+        896,
+        504
+      ]
+    },
+    {
+      "source_frame_index": 412,
+      "timestamp_ms": 2000.0,
+      "path": "/workspace/data/sanpo-video-smoke-bin/000412.jpg",
+      "source_url": "https://storage.googleapis.com/gresearch/sanpo_dataset/v0/sanpo-real/GEwWDMMe8FFo-wHxZ4Pg1chw15P2nEEz/camera_head/left/video_frames/000412.png",
+      "source_bytes": 3392657,
+      "source_sha256": "32ab0b7cc2cce5d1ecb73bbdc0c03748363303eb944b30fd80cb91119ef14782",
+      "prepared_sha256": "720548d4fd003ca9b9d2a447cad939ca574211fc7ae034a1f5af1b719287ed70",
+      "original_dimensions": [
+        2208,
+        1242
+      ],
+      "prepared_dimensions": [
+        896,
+        504
+      ]
+    }
+  ],
+  "downloaded_bytes": 18281535,
+  "download_budget_bytes": 20000000,
+  "transformations": "PNG decoded to RGB, resized to maximum edge896, JPEGquality92 optimize=True; chronological order preserved",
+  "limitations": [
+    "Relative timestamps use verified constant-rate metadata, not a separately measured timestamp stream",
+    "No hazard or movement ground-truth labels supplied for the clip",
+    "This validation recording was held out from optimizer updates but used during development"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "gemma-outdoor-adapter-v1",
+  "completed": true,
+  "model_id": "google/gemma-4-12B-it",
+  "model_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "supervision_tasks": [
+    "hazard_assessment"
+  ],
+  "steps": 40,
+  "train_examples": 155,
+  "validation_examples": 22,
+  "validation_loss": 0.12035474926233292,
+  "source_manifest_sha256": {
+    "train": "3c5bd2a90217e6efdb675b4eb19cf2d9df0e996bfc12c11a04fbf49165b87f44",
+    "validation": "412db7d99bb732cbab145a383f127e868474c0341c03feb4f1e12797fd600886"
+  },
+  "output_contract_version": "outdoor-hazards-v1",
+  "trained_for_contract": true,
+  "trained_for_verified_hazards": false,
+  "supervision_quality": "weak",
+  "label_policy_ids": [
+    "pave-rf-privileged-teacher-v2"
+  ],
+  "stop_reason": "max_steps",
+  "is_pilot": false,
+  "created_utc": "2026-10-09T17:57:30.360226-04:00",
+  "selected_checkpoint": "/workspace/runs/gemma-hazard-v2/checkpoint-40",
+  "best_validation_loss": 0.12035474926233292,
+  "artifact_sha256": {
+    "adapter_config.json": "615860134811a5ee9747c19bed7cd58dedf3a50ec85aaa4f4bf4f4fd01dc2240",
+    "adapter_model.safetensors": "3f8f37feb007bdb1420002125256c9ebe6d9401aa437f0bc82d81e23c6592745"
+  },
+  "training_scope": "language attention LoRA; base weights and multimodal projectors frozen",
+  "validation_scope": "held-out assistant token loss; not hazard accuracy, grounding accuracy or severity calibration"
+}

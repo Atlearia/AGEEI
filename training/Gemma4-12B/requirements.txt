@@ -1,0 +1,9 @@
+# Reuse a provider CUDA PyTorch + torchvision installation. No remote custom code.
+transformers==5.19.0
+peft==0.21.0
+accelerate>=1.10,<2
+Pillow>=11,<13
+pydantic>=2.8,<3
+tensorboard>=2.18,<3
+# Evaluation loads the local runtime, which defines a FastAPI application.
+fastapi>=0.115,<1

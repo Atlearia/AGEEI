@@ -1,0 +1,35 @@
+{
+  "audit_date_utc": "2026-10-09",
+  "label_policy_id": "pave-rf-privileged-teacher-v1",
+  "audit_kind": "bounded_nonrandom_first_generated_examples_and_three_visual_checks",
+  "accuracy_verified": false,
+  "validation_first_12": {
+    "rows": 12,
+    "hazards": 24,
+    "categories": {"obstacle_collision": 15, "trip_fall": 9},
+    "scenes_unknown": 0,
+    "scenes_uncertain": 1,
+    "empty_hazard_rows": 0,
+    "uncertain_hazards": 1,
+    "hazards_with_supplied_ids": 9,
+    "invalid_track_references": 0
+  },
+  "train_first_12": {
+    "rows": 12,
+    "hazards": 18,
+    "categories": {"obstacle_collision": 10, "moving_traffic": 3, "surface_hazard": 3, "trip_fall": 1, "other": 1},
+    "scenes_unknown": 1,
+    "scenes_uncertain": 1,
+    "empty_hazard_rows": 2,
+    "uncertain_hazards": 0,
+    "hazards_with_supplied_ids": 10,
+    "invalid_track_references": 0
+  },
+  "visual_checks": [
+    {"id": "pave-b6df3f38d4bc324f3d92", "finding": "Broad open park path; pole and hedge lie on dirt beside the right edge. Teacher reports them as hazards without visible forward-path obstruction."},
+    {"id": "pave-aae44f78b5df2e9286e4", "finding": "Bench sits at left edge with open center walking space. Teacher reports bench and small distant birds while omitting the visible bin nearer the central walking area."},
+    {"id": "pave-58a44c37bf1dc834f16b", "finding": "Tree is in left planter beside a clear center sidewalk. Right-side rose growth protrudes somewhat, but actual contact risk is not established by a still image."}
+  ],
+  "decision": "Revise teacher evidence threshold before training; do not treat schema-valid output as established factual hazard accuracy.",
+  "limitations": "Inspection is AI-assisted, nonrandom, and not human ground truth or a measured false-positive rate. Active output files were not changed by this audit."
+}
