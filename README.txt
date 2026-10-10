@@ -1,199 +1,130 @@
-WAYPOINT - VERSION A
+WAYPOINT | MODEL A
 
-Mobile web app. Next.js on Vercel. No App Store installation required.
+Waypoint is a mobile web accessibility prototype that combines Model A visual
+hazard detection with yellow detection overlays and concise spoken warnings.
+It runs in a browser and can be added to a phone's home screen.
 
-USE
-Open https://waypoint-ageei-2026.vercel.app
-Tap Start detecting, then Demo video 1, Demo video 2, or Live camera (Model A).
-The supplied walks (18 seconds and about 107 seconds) play without visible playback controls.
-The viewer contains only video, yellow hazard boxes, decimal threat scores, and three icon buttons:
-toggle boxes, mute/unmute warnings, and stop.
-Scores range from 0 to 1 and show two decimal places, e.g. 0.78. These are
-threat levels, not confidence or percentages.
-There are no visible object label, timeline, elapsed time, duration, source
-badge, subtitles, or fake live indicator. A text dialog appears only on error.
-At the end of the video the app returns to Start detecting.
-Original video audio plays throughout, including during spoken warnings.
-The speaker button mutes spoken warnings and live motion beeps. Stopping clears all media.
+This repository contains the Model A integration and two prerecorded
+demonstrations with authored hazard annotations. Model training and evaluation
+scripts are documented separately in training/README.md.
 
-On iPhone: Safari -> Share -> Add to Home Screen -> Open as Web App.
-This removes the normal browser toolbar. The screen must remain open for
-detection and audio; this is not a background camera app. Internet is needed
-for model/voice API calls. No offline support is claimed.
+FEATURES
+- Live rear-camera input connected to Model A.
+- Yellow boxes for valid model detections, including objects without a hazard
+  assessment. Boxes appear on the exact analyzed snapshot to preserve alignment.
+- Danger scores displayed from 0 to 1. Unknown scores remain unlabelled;
+  detector confidence is never presented as a danger score.
+- Local OpenCV motion analysis and immediate audible motion alerts.
+- Spoken live warnings from Model A assessments, synthesized by ElevenLabs.
+- Two prerecorded demonstrations with synchronized overlays, spoken warnings,
+  and the original video audio.
+- Minimal controls for input selection, overlays, audio, and stopping detection.
 
-WHAT IS REAL
-- The videos are the user's human data/demo video.MOV and demo video 2.MOV,
-  converted from rotated HDR HEVC to upright SDR H.264/AAC MP4 for browsers.
-  Video 2's original AAC audio is copied without re-encoding.
-- Each audible event calls the server to turn structured hazard data into
-  a short phrase with Qwen (the existing authorized account key).
-- ElevenLabs turns that phrase into actual speech using its Flash model.
-- Audio is decoded and played through an AudioContext unlocked on a tap.
-- Repeated identical warnings can use a 30-minute process-local server cache.
-  The LLM and TTS are called for a new, uncached warning.
+HOW IT WORKS
+Live camera frames are sampled into short clips and sent through a server-side
+adapter to Model A. The adapter validates frame identity, timestamps, dimensions,
+and bounding-box coordinates before displaying a result. Model A's boxes and
+hazard assessments are handled separately: valid boxes remain visible even when
+the hazard assessment is uncertain.
 
-WHAT IS AUTHORED FOR THIS DEMO
-lib/demo.ts contains manually authored keyframes for a raised concrete edge
-on the right and the red/white barrier ahead on the left. These are not
-trained-model predictions. The assistant chose box positions and danger
-levels specifically for this video, as requested.
-lib/demo-2.ts contains five hazards for the second video: raised planter edge,
-parked bicycles, lamp post, car ahead, and guardrail. Each has its own timed
-box and threat curve. The video ID is carried through the voice request and
-validated server-side so timelines cannot be mixed between videos.
-Danger is a value from 0 to 1, never confidence. It appears beside each box.
-Box threshold: 0.30. Speech threshold: 0.65. Speech release threshold: 0.55.
-Video 1 warnings cross the threshold at approximately 2.50 and 9.95 seconds.
-Video 2 warnings cross at 6, 33.7, 52, 60.5, and 89 seconds.
-Boxes disappear once the relevant hazard has passed.
-No warning says to step left/right or assumes a safe route.
+Live warnings use assessed hazards with a danger score of at least 0.50.
+Server-signed, expiring speech tickets authorize the corresponding spoken text.
+Local motion alerts run independently of the model request. Model inference can
+take several seconds, so returned boxes stay attached to the analyzed snapshot.
 
-LIVE CAMERA (CURRENT DEMO SETTINGS)
-Keep the camera still. The rear camera is used without microphone access.
-Local OpenCV optical flow checks for expanding objects and fast crossing.
-The more sensitive prototype triggers after two observations, with an
-approximate approach window of four seconds. It does not measure m/s.
-A short startup tone confirms the audio path. The speaker highlights when
-browser audio needs a tap. Gray motion icon = uncertain; yellow = actual
-motion alert. A confirmed alert plays three local beeps without an API call.
+The prerecorded demonstrations use authored box trajectories and danger scores,
+not Model A predictions. Structured demo events are converted into concise
+warnings by a configured LLM and synthesized with ElevenLabs. The demo speech
+threshold is 0.65. Playback timing, cancellation, and duplicate suppression keep
+warnings synchronized with the video.
 
-Motion uncertainty and alerts no longer block or cancel Model A requests.
-Six frames spanning about two seconds are analyzed, one request at a time.
-ALL valid boxes from Model A's boxes[] are shown, including ordinary objects
-and boxes with unknown severity. Unknown severity has no number; confidence
-is never substituted. Geometry is normalized XYXY, converted for the viewer.
-Boxes are on a larger preview of their exact analyzed snapshot because Model A
-usually takes several seconds. They are not pasted onto newer camera pixels.
-The model's separate hazards[] supplies assessed warning text. Live speech
-threshold is now 0.50; demos retain 0.65. Model A scores are divided by 100.
-Expired or mismatched results are still rejected. Stop/mute cancels audio.
+QUICK START
+Requirements: Node.js 22 or newer and npm.
 
-These are deliberately sensitive prototype settings, with possible false
-alarms. Browser tests use an approaching textured object and verify an actual
-audio signal. They do not establish detection accuracy for a running person
-on a physical phone. Walking with the camera is outside the stationary-camera
-assumption. Model inference still runs when local motion is unknown.
-The app holds camera frames in memory; provider retention is controlled by
-that service. Demo videos retain their manually authored detection timelines.
-
-VOICE TIMING
-Decoded video media timestamps drive boxes and speech decisions.
-requestVideoFrameCallback is used when available, with animation-frame fallback.
-Boxes are linearly interpolated between source-image keyframes; object-fit
-contain preserves the full source, with the same coordinate mapping for boxes.
-Each hazard is announced once per run. Muting, stopping, seeking, pausing,
-backgrounding, or the hazard passing cancels pending/playing warnings.
-Audio that is more than 3.5 video seconds late is discarded. Failed requests
-have limited retries. There is no fake browser-voice replacement for ElevenLabs.
-
-LOCAL RUN
-Node.js 22 or newer:
-  npm install
-  npm run dev
-  Open http://localhost:3000
+1. Install dependencies:
+     npm install
+2. Copy .env.example to .env.local and configure the services below.
+3. Start the development server:
+     npm run dev
+4. Open http://localhost:3000 and select an input.
 
 Production build:
   npm run build
   npm start
 
 CONFIGURATION
-.env.local is ignored by Git and deployment uploads. Never commit it.
-LLM_PROVIDER=openai-compatible
-LLM_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
-LLM_MODEL=qwen-turbo
-LLM_API_KEY=<authorized Qwen key>
-ELEVENLABS_API_KEY=<actual secret, not a key ID>
-ELEVENLABS_VOICE_ID=JBFqnCBsd6RMkjVDRZzb
-ELEVENLABS_MODEL_ID=eleven_flash_v2_5
-AGEII_BASE_URL=<Model A API base URL from the handoff>
-AGEII_API_TOKEN=<Model A bearer token>
+Set these server-side environment variables in .env.local for local development
+or in the hosting platform's environment settings for deployment:
 
-OpenAI is also supported: use LLM_PROVIDER=openai, unset LLM_BASE_URL / LLM_MODEL,
-set OPENAI_API_KEY, and optionally OPENAI_MODEL (default gpt-4.1-mini).
-All secrets stay in server environment variables; none have NEXT_PUBLIC names.
+  AGEII_BASE_URL           Model A inference API URL
+  AGEII_API_TOKEN          Model A bearer token
+  ELEVENLABS_API_KEY       ElevenLabs Text to Speech API key
+  ELEVENLABS_VOICE_ID      Optional voice selection
+  ELEVENLABS_MODEL_ID      Optional speech model selection
 
-DEPLOYMENT
-The linked Vercel project is waypoint-ageei-2026.
-  node scripts/sync-vercel-env.mjs --with-speech --with-model
-  vercel --prod --yes
-The helper checks project identity and sends keys only over stdin.
-Video is a static asset; full video is never sent through an API function.
-The alert endpoint accepts only an active demo track ID and timestamp, then
-derives the data server-side. It does not accept arbitrary TTS text or prompts.
+For demo warning generation, configure either an OpenAI-compatible provider:
 
-FILES
-components/Waypoint.tsx   Input lifecycle, video viewer, and icon-only controls.
-lib/detection.ts         Shared detection contract and source-coordinate geometry.
-lib/demo.ts              Authored demo hazard timeline.
-lib/demo-2.ts            Second video hazard keyframes and threat scores.
-lib/alert-controller.ts  Thresholds, cancellation, deduplication, freshness checks.
-lib/audio.ts             Mobile audio unlock, fetch, decoding, and playback.
-server/voice.ts          LLM and ElevenLabs integrations, cache, sanitized errors.
-server/model-a.ts        Model A adapter, clip validation and signed speech tickets.
-lib/live.ts              Fresh camera clips, local gate, model cancellation and speech.
-lib/motion.ts            Image-motion assessment and temporal alert confirmation.
-lib/motion-worker.ts     Local OpenCV feature tracking, isolated from the UI thread.
-lib/live-contract.ts     Exact-frame model mapping and motion-adjusted priorities.
-components/AnalysisPreview.tsx  Boxes aligned to the submitted camera snapshot.
-app/api/alert/route.ts   Server-only alert endpoint.
-app/api/live/            Live readiness, analysis and verified speech endpoints.
-app/api/status/route.ts  Boolean configuration status, no secrets.
-public/media/walk.mp4    Browser-compatible copy of supplied footage.
-public/media/walk-2.mp4  Browser-compatible second video with original audio.
-tests/core.test.ts       Timeline/coordinate and audio race-condition tests.
-tools/browser_check.py  Real video and browser lifecycle verification.
-artifacts/              Local-only test reports and screenshots; not deployed.
+  LLM_PROVIDER=openai-compatible
+  LLM_BASE_URL=<provider API base URL>
+  LLM_MODEL=<model name>
+  LLM_API_KEY=<API key>
 
-MODEL A CONTRACT
-Connected using human data/AGEII_A5000_AI_HANDOFF_WITH_ACCESS, API v1.4.
-Newest-frame normalized XYXY is converted to the viewer's XYWH coordinates.
-Session ID, frame ID, capture timestamp and dimensions must match exactly.
-The model's default maximum result age is 45 seconds. Track identifiers are
-session-scoped. Only server-signed, unexpired model warning text can reach
-the live speech endpoint. Browser bundles contain no model or voice keys.
+Or configure OpenAI:
+
+  LLM_PROVIDER=openai
+  OPENAI_API_KEY=<API key>
+  OPENAI_MODEL=<optional model name>
+
+See .env.example for defaults. Credentials stay on the server. Do not commit
+.env.local or expose secret values through NEXT_PUBLIC environment variables.
+
+DEPLOYMENT AND PHONE USE
+The application supports Vercel deployment. Configure the environment variables,
+link a Vercel project, and deploy with the Vercel CLI or dashboard.
+
+Camera access requires HTTPS, except on localhost. On iPhone, open the HTTPS site
+in Safari and use Share > Add to Home Screen for a standalone browser window.
+Camera detection and audio require the app to remain in the foreground.
+An internet connection is required for model and speech service requests.
+
+PROJECT STRUCTURE
+  components/Waypoint.tsx       Camera, video, and interface lifecycle
+  components/AnalysisPreview.tsx  Detection overlay on the analyzed snapshot
+  server/model-a.ts             Model A requests, validation, and speech tickets
+  server/voice.ts               LLM and ElevenLabs integrations
+  lib/live.ts                  Live camera sampling and analysis coordination
+  lib/live-contract.ts         Model response mapping and score normalization
+  lib/motion.ts                Motion assessment and alert confirmation
+  lib/motion-worker.ts         OpenCV feature tracking
+  lib/demo.ts, lib/demo-2.ts    Authored demonstration timelines
+  lib/alert-controller.ts      Demo warning timing and cancellation
+  app/api/                     Server-side analysis and speech routes
+  public/media/                Browser-compatible demonstration videos
+  tests/                       Automated behavior checks
+  tools/                       Browser checks, recording, and model diagnostics
+  training/                    RF-DETR and Gemma training, evaluation, and export
 
 VALIDATION
   npm test
   npm run typecheck
   npm run build
-  python tools/browser_check.py   (with local server on port 3000)
+
+With the app running locally:
+  python tools/browser_check.py
   python tools/live_quick_check.py
-  python tools/real_camera_check.py  (requires a real camera and configured APIs)
-The automated browser tests use the actual video and a short test waveform
-in place of paid provider responses. Real provider/deployment validation is
-recorded separately. Physical iPhone Safari must still be checked on the phone.
 
-Production demo verification (2026-10-09): both complete videos on the public
-URL produced all seven real Qwen -> ElevenLabs warnings with completed audio
-playbacks, original video sound and decimal scores, without browser errors.
-Generation took about 1.1-1.5 seconds. Both returned to Start at video end.
-Report: artifacts/hosted-two-video-verification.json
-Current validation (2026-10-09): 17 logic tests and the production build pass.
-Browser checks confirm startup and alarm audio signals, stationary-camera
-foreground approach, all detector boxes even when hazard reasoning is unknown,
-a 0.57 spoken warning, one-tap audio recovery, mute and stop. The model request
-continues through a motion alert. Physical phone/runner testing remains.
+Camera and provider checks require the relevant hardware and configured APIs.
+Python browser tools use Playwright; recording tools also require ffmpeg.
+Generated reports and recordings are excluded from version control.
 
-The explicitly requested Model A test on demo video.MOV sampled six clips:
-all returned HTTP 200; 13 object detections total across sampled frames.
-The last clip returned three curbs scored 0.43, 0.57 and 0.54. Earlier clips
-had ordinary objects and uncertain/unlocalized hazards. This exposed the
-original danger-only display filtering; the current adapter shows all boxes.
-The offline diagnostic bypasses local motion and labels replay sampling times
-separately from original media time. It is never treated as live footage.
+PROTOTYPE LIMITATIONS
+Local motion analysis assumes a reasonably stationary camera and does not
+measure physical velocity. Camera movement, lighting, occlusion, and inference
+latency can affect detections and warning timing. Sensitive motion thresholds
+can produce false alerts. Automated checks cover application behavior and audio
+playback; they do not establish detection accuracy or safety on a physical phone.
+Camera frames are sent to the configured Model A service for analysis.
 
-TOOLS
-python tools/live_quick_check.py  Browser motion/audio/box check (local server).
-python tools/hosted_check.py     Both full demos with actual paid voice APIs.
-python tools/record_demo.py      Browser screen recording with mixed audio.
-python tools/model_a_demo_diagnostic.py  Explicit offline Model A investigation.
-Tools need Python, Playwright and requests; recording also needs ffmpeg.
-Test artifacts, recordings, source MOV files and secrets are not committed.
-
-REFERENCE DOCUMENTATION
-https://elevenlabs.io/docs/api-reference/text-to-speech/stream
-https://www.alibabacloud.com/help/en/model-studio/compatibility-of-openai-with-dashscope
-https://vercel.com/docs/functions/runtimes/node-js
-https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback
-https://docs.opencv.org/4.13.0/db/d7f/tutorial_js_lucas_kanade.html
-https://visionbook.mit.edu/optical_flow.html
+LICENSE
+Application code is provided under the MIT License. Bundled third-party
+components retain their respective licenses; see LICENSE and public/vendor.
