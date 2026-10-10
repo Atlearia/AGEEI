@@ -1,0 +1,16 @@
+node_modules/
+.next/
+.vercel/
+.env*
+!.env.example
+*.tsbuildinfo
+artifacts/
+tools/frames/
+tools/frames-2/
+tools/*.jpg
+*.log
+
+.vercel
+
+__pycache__/
+tools/opencv-download/
